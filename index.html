@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <title>Mows</title>
+</head>
+
+    <body >
+      
+       <h1 class="text-center">Online MQTT Web Client</h1> <br><br>
+       <div class="container">
+       <div class="row">
+        <div class="col-sm-4">
+          <div class="card ">
+            <div class="card-body" style="height: 280px;">
+              <h5 class="card-header bg-warning">Broker</h5> <br>
+              Broker: <input id="broker" value="wss://test.mosquitto.org:8081/mqtt"> <br> <br>
+            <label>Status: </label>  <input type="text" value="press connect" disabled id="status"><br><br>
+              <button class="btn btn-outline-warning"  id="connect" onclick="connectFunc()">Connect</button>
+            </div>
+          </div><br>
+          <table class="table table-hover">
+              <div class="card-header bg-info">incomming messages</div>
+            <thead>
+              <tr>
+        
+                <th scope="col">Topic</th>
+                <th scope="col">Payload</th>
+                <th scope="col">Time Stamp</th>
+              </tr>
+            </thead>
+            <tbody id="incomming">
+              
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body"style="height: 280px;">
+              <h5 class="card-header bg-warning">Publish</h5><br>
+              Topic: <input id="pub-topic" value="cloud"><br><br>
+              Payload: <input id="pub-payload" value="strife"><br><br>
+              <button class="btn btn-outline-warning"   onclick="publishFunc()">Publish</button>
+            </div>
+          </div> <br>
+          <table class="table table-hover">
+            <div class="card-header bg-info">publish messages</div>
+          <thead>
+            <tr>
+      
+              <th scope="col">Topic</th>
+              <th scope="col">Payload</th>
+              <th scope="col">Time Stamp</th>
+            </tr>
+          </thead>
+          <tbody id="publish">
+            
+          </tbody>
+        </table>
+
+        </div>
+        
+        <div class="col-sm-4">
+            <div class="card"style="height: 280px;">
+              <div class="card-body">
+                <h5 class="card-header bg-warning">Subscribe</h5><br>
+                Topic: <input id="sub-topic" value="cloud">
+                <button class="btn btn-outline-warning " style="margin-top: 25%;"  onclick="subscribeFunc()">Subscribe</button>
+               
+              </div>
+            </div><br>
+            <table class="table table-hover" >
+                <div class="card-header bg-info">Subscribe messages</div>
+              <thead>
+                <tr>
+          
+                  <th scope="col">Topic</th>
+                  <th scope="col">Time Stamp</th>
+                </tr>
+              </thead>
+              <tbody id="subscribe">
+                
+              </tbody>
+            </table>
+          </div>
+          
+      </div>
+    </div>
+      <script src="browserMqtt.js"></script>
+      <script src="controller.js"></script>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+</body>
+</html>
